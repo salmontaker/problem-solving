@@ -1,14 +1,18 @@
+import sys
 from collections import deque
+
+input = sys.stdin.readline
 
 
 def bfs(y, x):
     queue = deque([(y, x)])
+    ground[y][x] = 0
+
     while queue:
         y, x = queue.popleft()
-
         for dy, dx in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
             Y, X = y + dy, x + dx
-            if Y > -1 and Y < N and X > -1 and X < M and ground[Y][X] == 1:
+            if -1 < Y < N and -1 < X < M and ground[Y][X] == 1:
                 queue.append((Y, X))
                 ground[Y][X] = 0
 
