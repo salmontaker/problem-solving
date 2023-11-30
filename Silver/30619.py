@@ -2,15 +2,8 @@ import sys, copy
 
 input = sys.stdin.readline
 
-
-def f(x):
-    return sum(i * x[i] for i in range(1, N + 1))
-
-
 N = int(input())
 A = [0] + [*map(int, input().split())]
-
-cur = f(A)
 
 for _ in range(int(input())):
     L, R = map(int, input().split())
@@ -27,7 +20,4 @@ for _ in range(int(input())):
     for i in range(R - L + 1):
         B[pos[i]] = num[i]
 
-    if cur < f(B):
-        print(*B[1:])
-    else:
-        print(*A[1:])
+    print(*B[1:])
